@@ -1,0 +1,19 @@
+npm i react-currency-format
+
+혹시 버전 차이로 인스톨이 안될 때는
+
+npm i react-currency-format --force
+
+로 강제 인스톨을 해줄수 있음
+
+-----------------------------------------------------------
+
+<Link to ='/'><Link>를 이용해서 a 태그 역할을 할 수 있음
+
+-----------------------------------------------------------
+
+Reducer
+
+장바구니에 담기 같은 행동을 데이터 레이어로 dispatch 해주는 것
+
+데이터를 dispatch 할 action 을 쏴 주면 해당 case 에 맞는 state 와 action 을 return 해주는 것
