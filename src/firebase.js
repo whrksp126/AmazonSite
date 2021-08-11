@@ -1,4 +1,6 @@
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import firebase from 'firebase';
+
+// 현재 사용자의 개인적인 정보
 const firebaseConfig = {
   apiKey: 'AIzaSyBXQGC7ulj4LZ4J3WSbVuNZXjZz3lZcQ88',
   authDomain: 'gh-ddc43.firebaseapp.com',
@@ -9,4 +11,10 @@ const firebaseConfig = {
   measurementId: 'G-3L9BNQS0WB',
 };
 
-// firebase 사이트에서 프로젝트 설정에 들어가서 sdk 설정을 구성을 변경하고 아래 내용을 복사한다
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+// 데이터베이스 구축
+const db = firebaseApp.firestore();
+// 회원가입을 위한
+const auth = firebase.auth();
+
+export { db, auth };
