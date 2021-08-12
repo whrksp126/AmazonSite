@@ -29,3 +29,53 @@ $ npm install @material-ui/core
 npm i firebaseapp
 
 로그인 회원가입 관련 서버 관리
+
+-----------------------------------------------------------
+
+useHistory
+
+이것을 통해서 다른 페이지로 행동을 한 이후로 페이지가 이동
+
+-----------------------------------------------------------
+
+useEffect(a,b) b 가 변할 때 마다 a 가 실행 됨 (동기화)
+
+b = deps 만약에 b 가 없으면(무) 이면 값이 들어올 때 까지 계속 돌아감
+         만약에 b 에 [] 하나만 있으면 한번만 렌더링을 해줌
+         만약에 b 에 [user] 처럼 인자가 있으면 인자의 변화에 따라 a 가 실행이 됨
+
+-----------------------------------------------------------
+
+Reducer.js 에 
+
+export const initialState = {
+  basket: [],
+  user: null,
+};
+
+는
+
+앱 전역에 basket 과 user 에 정보도 주고 받게 설정을 하겠다는 것임
+
+-----------------------------------------------------------
+
+deploy = 호스트를 해줌, 누가나 해당 사이트에 들어갈 수 있음
+
+npm install -g firebase-tools
+
+firebase init
+
+※ 혹시 npm install -g firebase-tools 이건 잘 진행 했는데 firebase 명령어가 안먹히면 
+
+- 안되면 95% 확률로 Nodejs 설치를 제대로 안한 것임 최신버전 다시 설치해보셈 
+
+- 맥북에서 권한없다고 뭐라그러면 sudo npm install -g firebase-tools@9.12.1 이렇게 입력해봅시다. 
+
+- 윈도우에서 허가되지 않은 스크립트입니다~라고 뭐라그러면 시작메뉴에서 powershell 검색 후 관리자 권한으로 여신 다음
+
+Set-ExecutionPolicy Unrestricted 라고 대소문자 하나라도 틀리지않고 입력하십시오. 그럼 잘됨 
+
+이렇게 실행해 볼 것
+
+그래도 안되면 npm install -g firebase-tools@9.12.1 으로 설치해볼 것
+
