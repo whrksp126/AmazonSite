@@ -31,7 +31,7 @@ function Header() {
 
       <div className="header_nav">
         <div className="header_option">
-          <span className="header_optionLineOne"> 안녕하세요 !</span>
+          <span className="header_optionLineOne">{!user ? "로그인 하세요!" : user.email}</span>
           <Link to={(!user && '/login', '/login')} className="homelogin">
             <span
               onClick={handleAuthentication}
@@ -54,7 +54,7 @@ function Header() {
           <div className="header_optionBasket">
             <ShoppingBasketIcon />
             <span className="header_basketCount">
-              {basket?.length}
+              {user ? basket?.length : 0}
               {/* 장바구니의 크기를 알고 싶은데 혹시 오류가 생겼을 수도 있으니 옵셔널 체이닝을 해야함 */}
               {/* 옵셔널 체이닝은 만약 basket 값이 널이거나 언디파인드이면 일반적인 프로그램은 에러를 반환하는데 이건 한번 더 검증을 해서 언디파인드를 반환하게 해줌 */}
             </span>

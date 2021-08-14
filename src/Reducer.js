@@ -12,7 +12,6 @@ export const getBasketTotal = (basket) =>
 // basket 배열에서 item 의 price 를 합산하기 위해 reduce 사용
 
 const reducer = (state, action) => {
-  console.log(action);
 
   switch (action.type) {
     case 'ADD_TO_BASKET':
@@ -20,6 +19,12 @@ const reducer = (state, action) => {
         ...state,
         basket: [...state.basket, action.item],
       };
+
+      case 'EMPTY_BASKET':
+        return {
+          ...state,
+          basket:[]
+        }
 
     case 'REMOVE_FROM_BASKET':
       const index = state.basket.findIndex(

@@ -1,21 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Product.css';
 import { useStateValue } from './StateProvider';
 
 function Product({ id, title, image, price, rating }) {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   const addToBasket = () => {
-    dispatch({
-      type: 'ADD_TO_BASKET',
-      item: {
-        id: id,
-        title: title,
-        image: image,
-        price: price,
-        rating: rating,
-      },
-    });
+    if (user) {
+      dispatch({
+        type: 'ADD_TO_BASKET',
+        item: {
+          id: id,
+          title: title,
+          image: image,
+          price: price,
+          rating: rating,
+        },
+      });
+    } else {
+    }
   };
 
   return (
@@ -40,7 +44,9 @@ function Product({ id, title, image, price, rating }) {
       </div>
 
       <img src={image} alt="" />
-      <button onClick={addToBasket}>장바구니 담기</button>
+      <Link to={!user && '/login'}>
+        <button onClick={addToBasket}>장바구니 담기</button>
+      </Link>
     </div>
   );
 }

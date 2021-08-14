@@ -7,6 +7,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
+  
   const singIn = (e) => {
     e.preventDefault();
     // 데이터가 맞는지 확인하는 메서드
@@ -28,9 +29,10 @@ function Login() {
         // 만약에  auth 가 true 면 ( 성공적으로 생성이 됐으면) 페이지를 옴겨라 '/' 로
         if (auth) {
           history.push('/');
+          alert("회원가입을 축하드립니다.")
         }
       })
-      .catch((error) => alert(error.message()));
+      .catch((error) => alert(error));
   };
   return (
     <div className="login">

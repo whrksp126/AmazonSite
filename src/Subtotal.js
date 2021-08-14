@@ -3,9 +3,23 @@ import './Subtotal.css';
 import CurrencyFormat from 'react-currency-format';
 import { useStateValue } from './StateProvider';
 import { getBasketTotal } from './Reducer';
+import { useHistory } from 'react-router-dom';
 
 function Subtotal() {
   const [{ basket }, dispatch] = useStateValue();
+  const history = useHistory();
+  const payment = (e) => {
+    e.preventDefault();
+
+    if (basket.length !== 0) {
+      history.push('/payment')
+    } else {
+      history.push('/')
+      alert('상품을 추가해 주세요')
+    }
+  
+    console.log(basket);
+  }
 
   return (
     <div className="subtotal">
@@ -26,7 +40,7 @@ function Subtotal() {
         thousandSeparator={true} // 천의 자리 마다
         prefix={'￦'}
       />
-      <button>결제하기</button>
+      <button onClick={payment}>결제하러 가기</button>
     </div>
   );
 }
